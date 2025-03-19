@@ -38,7 +38,7 @@ class ChaiReview(models.Model):
 class ChaiStore(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
-    chai_varities = models.ManyToManyField(ChaiVarity, related_name="stores")
+    chai_varieties = models.ManyToManyField(ChaiVarity, related_name="stores")
 
     def __str__(self):
         return self.name
