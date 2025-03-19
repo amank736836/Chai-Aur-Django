@@ -28,7 +28,14 @@ class ChaiReview(models.Model):
         ChaiVarity, on_delete=models.CASCADE, related_name="reviews"
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reviews")
-    rating = models.PositiveIntegerField()
+    RATING_CHOICES = [
+        (1, "1 Star"),
+        (2, "2 Star"),
+        (3, "3 Star"),
+        (4, "4 Star"),
+        (5, "5 Star"),
+    ]
+    rating = models.CharField(max_length=1, choices=RATING_CHOICES)
     comment = models.TextField(default=timezone.now)
 
     def __str__(self):
